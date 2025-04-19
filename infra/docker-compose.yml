@@ -1,0 +1,30 @@
+services:
+  products:
+    build:
+      context: ../products-ms
+      dockerfile: Dockerfile.products
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../products-ms:/app
+      - ../products-ms/database.sqlite:/app/database.sqlite
+    networks:
+      - backendlinktic
+
+  inventory:
+    build:
+      context: ../inventory-ms
+      dockerfile: Dockerfile.inventory
+    ports:
+      - "4000:4000"
+    volumes:
+      - ../inventory-ms:/app
+      - ../inventory-ms/database.sqlite:/app/database.sqlite
+    networks:
+      - backendlinktic
+    depends_on:
+      - products
+
+networks:
+  backendlinktic:
+    driver: bridge
