@@ -1,15 +1,17 @@
+version: "3.8"
+
 services:
   products:
     build:
-      context: ../products-ms
+      context: ../products-ms         
       dockerfile: Dockerfile.products
     ports:
-      - "3000:3000"
+      - "3000:3000"                   
     volumes:
-      - ../products-ms:/app
       - ../products-ms/database.sqlite:/app/database.sqlite
     networks:
       - backendlinktic
+    restart: always                  
 
   inventory:
     build:
@@ -18,13 +20,13 @@ services:
     ports:
       - "4000:4000"
     volumes:
-      - ../inventory-ms:/app
       - ../inventory-ms/database.sqlite:/app/database.sqlite
     networks:
       - backendlinktic
     depends_on:
-      - products
+      - products                     
+    restart: always
 
 networks:
   backendlinktic:
-    driver: bridge
+    driver: bridge                   
