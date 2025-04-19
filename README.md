@@ -1,6 +1,6 @@
 # Microservicios de Productos e Inventario
 
-Este proyecto contiene dos microservicios construidos con Node.js 20, Express y SQLite, que se comunican entre sí usando HTTP. Se implementa manejo de inventario y gestión de productos, siguiendo el estándar de respuesta [JSON:API](https://jsonapi.org).
+Este proyecto contiene dos microservicios construidos con Node.js 20, Express y SQLite, que se comunican entre sí usando HTTP. Se implementa manejo de inventario y gestión de productos, siguiendo el estándar de respuesta [JSON:API](https://jsonapi.org). Aunque todo se encuentra en un solo repositorio para fin practico, al momento de escalar cada microservicio o crear mas microservicios se pueden realizar en repositorios diferentes y configurar docker compose y kubernetes para mantener una infraestructura robusta en microservicios, adicional usar **kafka** para realizar una mejor comunicacion de cada microservicio.
 
 ---
 
@@ -47,6 +47,16 @@ Este proyecto contiene dos microservicios construidos con Node.js 20, Express y 
 
 └── README.md
 ```
+
+---
+
+## ⚙️ Tests
+
+Puedes ejecutar 
+```env
+npm run test
+```
+Para verificar las pruebas unitarias dentro de cada microservicio.
 
 ---
 
